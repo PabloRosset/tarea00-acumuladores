@@ -78,7 +78,25 @@ public class Acumuladores {
 	 * @return
 	 */
 	public boolean algunaFilaSumaMasQueLaColumna(int[][] mat, int nColum) { 
-		throw new RuntimeException("Metodo no implementado aun!!!");
+		if (nColum < 0 || nColum >= mat[0].length || mat == null) {
+		    return false;
+		}
+		int acumCol = 0;
+		for (int i = 0; i < mat.length; i++) {
+			acumCol += mat[i][nColum];
+		}
+		
+		for (int i = 0; i < mat.length; i++) {
+			int acumFil = 0;
+			
+			for (int j = 0; j < mat[i].length; j++) {
+				acumFil += mat[i][j];
+			}
+			if (acumFil > acumCol) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	/**
